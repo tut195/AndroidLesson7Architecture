@@ -2,7 +2,12 @@ package com.babenkovladimir.androidlesson7architecture.mvp.mvp_survive_rotate;
 
 class IntroPresenter implements IntroMvp.Presenter {
 
+  // MyView
+
   private IntroMvp.View view;
+
+  // Model
+
   private int count;
 
   @Override

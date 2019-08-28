@@ -3,10 +3,11 @@ package com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login;
 import com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login.UserLoginContract.Presenter;
 import com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login.UserLoginContract.View;
 import com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login.entity.User;
+import com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login.utils.IValidator;
 
 public class UserLoginPresenter implements Presenter {
 
-  // View
+  // MyView
 
   UserLoginContract.View mView;
 
@@ -14,11 +15,13 @@ public class UserLoginPresenter implements Presenter {
 
   private User mUser;
 
+  private IUserRepository mRepository;
+  private IValidator mValidator;
+
   // Constructor
 
   public UserLoginPresenter() {
     mUser = new User();
-
   }
 
   // Implementation
@@ -48,10 +51,12 @@ public class UserLoginPresenter implements Presenter {
   public void onButtonLoginClick() {
     if (!areFieldsValid()) {
       if (mView != null) {
-        mView.showWarningMessage();
+        mView.showWarningPopup();
       }
     } else {
+      mRepository.saveUserToDb(mUser);
       mView.showSuccessPopup();
+//      mView.navigateNextScreen();
       // TODO use User fields
     }
   }
@@ -59,6 +64,7 @@ public class UserLoginPresenter implements Presenter {
   // Private
 
   private Boolean areFieldsValid() {
+//    return (mValidator.isUserLoginValid(mUser.getLogin())  && mValidator.isPasswordValid(mUser.getPassword()));
     return (mUser.getLogin().length() > 3 && mUser.getPassword().length() > 3);
   }
 

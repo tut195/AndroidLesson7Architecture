@@ -1,8 +1,10 @@
 package com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AlertDialog;
@@ -47,6 +49,12 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginCon
     }
 
     mPresenter.attachView(this);
+    Log.d("TAGA","presenter hash code - "+ mPresenter.hashCode());
+  }
+
+  @Override
+  public Object onRetainCustomNonConfigurationInstance() {
+    return mPresenter;
   }
 
   private void setupListeners() {
@@ -95,10 +103,10 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginCon
     mPresenter.detachView();
   }
 
-  // View implementation
+  // MyView implementation
 
   @Override
-  public void showWarningMessage() {
+  public void showWarningPopup() {
     new AlertDialog.Builder(this)
         .setTitle("Warning")
         .setMessage("Some fields are not valid")
@@ -118,5 +126,10 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginCon
   @Override
   public void updateFields(User user) {
     mUserLogin.setText(user.getLogin());
+  }
+
+  @Override
+  public void navigateNextScreen() {
+    startActivity(new Intent("tel:+38050 - - - "));
   }
 }

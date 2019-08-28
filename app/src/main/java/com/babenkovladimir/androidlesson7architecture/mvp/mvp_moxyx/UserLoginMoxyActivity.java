@@ -14,6 +14,7 @@ import com.babenkovladimir.androidlesson7architecture.mvp.mvp_moxyx.base.BaseMox
 import com.babenkovladimir.androidlesson7architecture.mvp.mvp_moxyx.impl.UserLoginMoxyPresenterImpl;
 import com.babenkovladimir.androidlesson7architecture.mvp.mvp_user_login.entity.User;
 
+//public class UserLoginMoxyActivity extends MvpAppCompatActivity implements IUserLoginMoxyView {
 public class UserLoginMoxyActivity extends BaseMoxyActivity implements IUserLoginMoxyView {
 
   // Variables
@@ -48,7 +49,6 @@ public class UserLoginMoxyActivity extends BaseMoxyActivity implements IUserLogi
     mUserLogin.addTextChangedListener(new TextWatcher() {
       @Override
       public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
       }
 
       @Override
@@ -84,7 +84,7 @@ public class UserLoginMoxyActivity extends BaseMoxyActivity implements IUserLogi
 
   // Implementation
 
-// View implementation
+// MyView implementation
 
   @Override
   public void showWarningMessage() {

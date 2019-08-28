@@ -6,11 +6,13 @@ public interface UserLoginContract {
 
   interface View {
 
-    void showWarningMessage();
+    void showWarningPopup();
 
     void showSuccessPopup();
 
     void updateFields(User user);
+
+    void navigateNextScreen();
   }
 
   interface Presenter {

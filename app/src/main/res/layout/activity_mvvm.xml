@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".mvvm.MvvmActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mvp.mvp_user_login.UserLoginActivity">
+
+
+    <Button
+      android:id="@+id/btLogin"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Login"
+      android:onClick="@{()-> viewModel.onButtonLoginClick()}"
+      android:textAllCaps="false" />
+
+    <EditText
+      android:id="@+id/etUserLogin"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Login"/>
+
+    <EditText
+      android:id="@+id/etPassword"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@{viewModel.password}"
+
+
+
+      android:inputType="textPassword" />
+
+  </LinearLayout>
+
+
+  <data>
+    <variable
+      name="viewModel"
+      type="com.babenkovladimir.androidlesson7architecture.mvvm.MyViewModel" />
+
+  </data>
+
+
+</layout>
