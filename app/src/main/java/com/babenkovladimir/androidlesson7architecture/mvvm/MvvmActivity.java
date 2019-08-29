@@ -29,21 +29,26 @@ public class MvvmActivity extends AppCompatActivity {
   }
 
   private void setupListeners() {
+    mModel.someEvent.observe_(this, o -> new Builder(mContext)
+        .setTitle("Warning!")
+        .setMessage("Fields are not valid!")
+        .setCancelable(true)
+        .show());
 
-    mModel.someEvent.observe_(this, new Observer<Object>() {
-
-      @Override
-      public void onChanged(Object o) {
-        new Builder(mContext)
-            .setTitle(getByRes(R.string.congrats))
-            .setMessage("You shell pass!")
-            .setCancelable(true)
-            .show();
-      }
-    });
+    mModel.showSuccessPopupEvent.observe_(this, new Observer<Object>() {
+          @Override
+          public void onChanged(Object o) {
+            new Builder(mContext)
+                .setTitle(getByRes(R.string.congrats))
+                .setMessage("You shell pass!")
+                .setCancelable(true)
+                .show();
+          }
+        }
+    );
   }
 
-  private String getByRes(int res){
+  private String getByRes(int res) {
 //    return this.getString(res);
     return mContext.getString(res);
   }

@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".mvp.mvp_user_login.UserLoginActivity">
 
-
     <Button
       android:id="@+id/btLogin"
       android:layout_width="match_parent"
@@ -18,24 +17,25 @@
       android:onClick="@{()-> viewModel.onButtonLoginClick()}"
       android:textAllCaps="false" />
 
+    <!--  @{viewModel.login} - это простой биндинг  -->
+    <!--  @={viewModel.login} - это двусторонний биндинг  -->
+
     <EditText
       android:id="@+id/etUserLogin"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:hint="Login"/>
+      android:hint="Login"
+      android:text="@={viewModel.login}" />
 
     <EditText
       android:id="@+id/etPassword"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="@{viewModel.password}"
-
-
-
-      android:inputType="textPassword" />
+      android:hint="Password"
+      android:inputType="textPassword"
+      android:text="@={viewModel.password}" />
 
   </LinearLayout>
-
 
   <data>
     <variable
@@ -43,6 +43,5 @@
       type="com.babenkovladimir.androidlesson7architecture.mvvm.MyViewModel" />
 
   </data>
-
 
 </layout>
