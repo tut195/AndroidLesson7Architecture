@@ -1,4 +1,4 @@
-package com.chicago.market.utils.events
+package com.babenkovladimir.androidlesson7architecture.mvvm
 
 /**
  * Used as a wrapper for data that is exposed via a LiveData that represents an event.

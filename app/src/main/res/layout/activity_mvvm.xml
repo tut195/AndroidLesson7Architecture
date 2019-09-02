@@ -41,7 +41,6 @@
     <variable
       name="viewModel"
       type="com.babenkovladimir.androidlesson7architecture.mvvm.MyViewModel" />
-
   </data>
 
 </layout>

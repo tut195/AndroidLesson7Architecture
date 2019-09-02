@@ -9,7 +9,12 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-
+    <activity android:name=".bottomnavigationview.BottomNvigationActivity"></activity>
+    <activity
+      android:label="@string/title_activity_navigation_drawer"
+      android:name=".navigation_drawer.NavigationDrawerActivity"
+      android:theme="@style/AppTheme.NoActionBar" />
+    <activity android:name=".viewPager.PagerActivity" />
     <activity android:name=".mvp.mvp_user_login.UserLoginActivity" />
     <activity android:name=".MainActivity">
       <intent-filter>
@@ -18,23 +23,18 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-
     <activity
       android:label="MVVM"
       android:name=".mvvm.MvvmActivity" />
-
     <activity
       android:label="MVP clean"
       android:name=".mvp.MvpActivity" />
-
     <activity
       android:label="MPV Simple Rotate"
       android:name=".mvp.mvp_survive_rotate.IntroActivity" />
-
     <activity
       android:label="Moxy Implementation"
       android:name=".mvp.mvp_moxyx.UserLoginMoxyActivity" />
-
   </application>
 
 </manifest>
